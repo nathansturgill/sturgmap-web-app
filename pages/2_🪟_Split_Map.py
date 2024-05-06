@@ -1,5 +1,7 @@
 import streamlit as st
 import sturgmap.foliumap as sturgmap
+import folium
+from folium import TileLayer
 
 st.set_page_config(layout="wide")
 
