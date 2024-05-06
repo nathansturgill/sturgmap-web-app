@@ -13,15 +13,14 @@ st.sidebar.info(markdown)
 logo = "https://i.imgur.com/UbOXYAU.png"
 st.sidebar.image(logo)
 
-st.title("Split-panel Map")
+st.title("Interactive Raster Map")
 
 with st.expander("See source code"):
     with st.echo():
-       m= sturgmap.Map([30, 20], zoom=4)
-    layer_left = folium.TileLayer('cartodbpositron')
-    layer_right = folium.TileLayer('openstreetmap')
 
-    m.add_side_by_side_layers(layer_left, layer_right)
-
+       m= sturgmap.Map()
+    url = "https://github.com/opengeos/datasets/releases/download/raster/landsat7.tif"
+    m.add_raster(url, name='landsat.tif', opacity=0.4)
     m
+
 m.to_streamlit(height=700)
